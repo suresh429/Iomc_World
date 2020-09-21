@@ -45,17 +45,7 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="17sp" />
 
-            <TextView
-                android:id="@+id/txtCategoryEdition"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:textColor="@color/colorAccent"
-                android:text="@string/medical_sciences"
-                android:textSize="14sp"
-                android:gravity="center_vertical"
 
-                />
 
         </LinearLayout>
 

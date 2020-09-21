@@ -53,37 +53,7 @@ public class JournalRepository {
         return toastMessageObserver;
     }
 
-    // getting home data response
-    public MutableLiveData<HomeResponse> getHomeData(JsonObject jsonObject) {
-        progressbarObservable.setValue(true);
-        MutableLiveData<HomeResponse> homeData = new MutableLiveData<>();
-        newsApi.getHomeList(jsonObject).enqueue(new Callback<HomeResponse>() {
-            @Override
-            public void onResponse(@NotNull Call<HomeResponse> call, @NotNull Response<HomeResponse> response) {
-                if (response.isSuccessful()) {
-                    progressbarObservable.setValue(false);
-                    homeData.setValue(response.body());
-                } else {
-                    progressbarObservable.setValue(false);
-                    toastMessageObserver.setValue("Something unexpected happened to our request: " + response.message()); // Whenever you want to show toast use setValue.
 
-                }
-            }
-
-            @Override
-            public void onFailure(@NotNull Call<HomeResponse> call, @NotNull Throwable t) {
-                if (t instanceof NoConnectivityException) {
-                    // show No Connectivity message to user or do whatever you want.
-                    toastMessageObserver.setValue(t.getMessage());
-                    // Whenever you want to show toast use setValue.
-
-                }
-                // homeData.setValue(null);
-                progressbarObservable.setValue(false);
-            }
-        });
-        return homeData;
-    }
 
 
     //getting category data response

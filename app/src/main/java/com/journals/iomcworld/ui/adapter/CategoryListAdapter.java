@@ -30,10 +30,10 @@ import static android.content.ContentValues.TAG;
 
 public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapter.ViewHolder> {
 
-    List<CategoryResponse.SubcatDetailsBean> modelList;
+    List<CategoryResponse.JournalDetailsBean> modelList;
 
     Context context;
-    public CategoryListAdapter(List<CategoryResponse.SubcatDetailsBean> modelList,Context context) {
+    public CategoryListAdapter(List<CategoryResponse.JournalDetailsBean> modelList,Context context) {
         this.modelList = modelList;
         this.context = context;
     }
@@ -48,7 +48,6 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
     public void onBindViewHolder(@NonNull CategoryListAdapter.ViewHolder holder, int position) {
 
         holder.rowItemBinding.txtCategoryTitle.setText(modelList.get(position).getManagejournal());
-        holder.rowItemBinding.txtCategoryEdition.setText(modelList.get(position).getVol_issue_name());
         Log.d(TAG, "onBindViewHolder: "+modelList.get(position).getFlyerimg());
         Glide.with(context)
                 .load(modelList.get(position).getFlyerimg())
@@ -72,9 +71,9 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putString("journal", modelList.get(position).getJournal());
+                bundle.putString("journal", modelList.get(position).getManagejournal());
                 bundle.putString("page_url", modelList.get(position).getHome_url());
-                bundle.putString("journalcode", modelList.get(position).getJournalcode());
+                bundle.putString("journalcode", modelList.get(position).getJournal());
                 bundle.putString("rel_keyword", modelList.get(position).getRel_keyword());
                 bundle.putString("journal_logo", modelList.get(position).getJournal_logo());
                 bundle.putString("track_paper", modelList.get(position).getTrack_paper());

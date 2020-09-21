@@ -20,12 +20,10 @@ import retrofit2.http.POST;
 
 public interface Api {
 
-    @Headers("Content-Type: application/json")
-    @POST("homeapi.php")
-    Call<HomeResponse> getHomeList(@Body JsonObject jsonObject);
+
 
     @Headers("Content-Type: application/json")
-    @POST("categorylistapi.php")
+    @POST("journalslistapi.php")
     Call<CategoryResponse> getCategoryList(@Body JsonObject jsonObject);
 
     @Headers("Content-Type: application/json")
@@ -56,9 +54,6 @@ public interface Api {
     @POST("contactpagejournalsapi.php")
     Call<JournalsListResponse> getJournalListDisplay(@Body JsonObject jsonObject);
 
-  /*  {
-        "page":"1"
-    }*/
 
     @Headers("Content-Type: application/json")
     @POST("contactapi.php")

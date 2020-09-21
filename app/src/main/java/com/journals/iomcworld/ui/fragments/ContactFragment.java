@@ -197,8 +197,8 @@ public class ContactFragment extends Fragment implements View.OnClickListener {
                             if (contactResponse.isStatus()){
                                 Toast.makeText(requireContext(), ""+contactResponse.getMessage(), Toast.LENGTH_SHORT).show();
                                 //Navigation.findNavController(fragmentContactBinding.getRoot()).navigate(R.id.nav_home);
-                                NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.nav_home, true).build();
-                                Navigation.findNavController(fragmentContactBinding.getRoot()).navigate(R.id.nav_home, null, navOptions);
+                                NavOptions navOptions = new NavOptions.Builder().setPopUpTo(R.id.categoryFragment, true).build();
+                                Navigation.findNavController(fragmentContactBinding.getRoot()).navigate(R.id.categoryFragment, null, navOptions);
 
                             }else {
                                 Toast.makeText(requireActivity(), ""+contactResponse.getMessage(), Toast.LENGTH_SHORT).show();

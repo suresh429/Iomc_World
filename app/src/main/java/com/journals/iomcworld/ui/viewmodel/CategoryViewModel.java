@@ -23,7 +23,7 @@ public class CategoryViewModel extends ViewModel {
         JournalRepository journalRepository = JournalRepository.getInstance(context);
 
         JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("cat_id",id);
+        jsonObject.addProperty("page",id);
         mutableLiveData = journalRepository.getCategoryData(jsonObject);
         progressbarObservable = journalRepository.getProgressbarObservable();
         toastMessageObserver = journalRepository.getToastObserver();

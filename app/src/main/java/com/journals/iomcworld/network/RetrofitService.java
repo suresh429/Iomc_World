@@ -47,7 +47,7 @@ public class RetrofitService {
             // Adding NetworkConnectionInterceptor with okHttpClientBuilder.
 
             retrofit = new Retrofit.Builder()
-                    .baseUrl("https://www.hilarispublisher.com/admin/api/")
+                    .baseUrl("https://www.iomcworld.org/admin/api/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(oktHttpClient.build())
                     .build();

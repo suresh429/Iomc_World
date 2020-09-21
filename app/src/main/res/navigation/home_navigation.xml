@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home"
+    app:startDestination="@+id/categoryFragment"
     >
 
-    <fragment
+    <!--<fragment
         android:id="@+id/nav_home"
         android:name="com.journals.iomcworld.ui.fragments.HomeFragment"
         android:label="@string/menu_home"
@@ -17,7 +17,7 @@
         <action
             android:id="@+id/action_nav_home_to_abstractDisplayFragment"
             app:destination="@id/abstractDisplayFragment" />
-    </fragment>
+    </fragment>-->
 
     <fragment
         android:id="@+id/nav_contact"
@@ -28,7 +28,7 @@
 
         <action
             android:id="@+id/action_nav_contact_to_nav_home"
-            app:destination="@id/nav_home"
+            app:destination="@id/categoryFragment"
             app:launchSingleTop="true"
             />
     </fragment>
@@ -37,6 +37,7 @@
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.journals.iomcworld.ui.fragments.CategoryFragment"
+        android:label="@string/menu_home"
         tools:layout="@layout/fragment_category" >
         <action
             android:id="@+id/action_categoryFragment_to_dashBoardFragment"

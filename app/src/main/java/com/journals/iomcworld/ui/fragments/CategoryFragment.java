@@ -34,12 +34,11 @@ public class CategoryFragment extends Fragment {
     private static final String TAG = "CategoryFragment";
 
     FragmentCategoryBinding fragmentCategoryBinding;
-    ArrayList<CategoryResponse.SubcatDetailsBean> subcatDetailsBeanArrayList = new ArrayList<>();
+    ArrayList<CategoryResponse.JournalDetailsBean> subcatDetailsBeanArrayList = new ArrayList<>();
     CategoryViewModel categoryViewModel;
 
     CategoryListAdapter categoryListAdapter;
 
-    String catId="",catName;
 
     public CategoryFragment() {
         // Required empty public constructor
@@ -51,15 +50,9 @@ public class CategoryFragment extends Fragment {
         // Inflate the layout for this fragment
         fragmentCategoryBinding = FragmentCategoryBinding.inflate(getLayoutInflater(), container, false);
 
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-            catId = getArguments().getString("catId");
-            catName = getArguments().getString("catName");
-        }
-        Objects.requireNonNull(((AppCompatActivity) requireActivity()).getSupportActionBar()).setTitle(catName);
 
         categoryViewModel = new ViewModelProvider(this).get(CategoryViewModel.class);
-        categoryViewModel.init(catId,requireActivity());
+        categoryViewModel.init("1",requireActivity());
 
         // progress bar
         categoryViewModel.getProgressbarObservable().observe(getViewLifecycleOwner(), aBoolean -> {
@@ -86,7 +79,7 @@ public class CategoryFragment extends Fragment {
 
 
             if (homeResponse != null){
-                List<CategoryResponse.SubcatDetailsBean> catDetailsBeanList = homeResponse.getSubcat_details();
+                List<CategoryResponse.JournalDetailsBean> catDetailsBeanList = homeResponse.getJournal_details();
 
                 subcatDetailsBeanArrayList.addAll(catDetailsBeanList);
 

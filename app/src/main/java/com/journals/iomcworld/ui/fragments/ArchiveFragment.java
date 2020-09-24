@@ -91,6 +91,7 @@ public class ArchiveFragment extends Fragment {
         archiveViewModel.getArchiveRepository().observe(getViewLifecycleOwner(), homeResponse -> {
 
             if (homeResponse != null){
+                archiveDetailsBeanArrayList.clear();
                 List<ArchiveResponse.ArchiveYearsBean> catDetailsBeanList = homeResponse.getArchive_years();
                 archiveDetailsBeanArrayList.addAll(catDetailsBeanList);
 

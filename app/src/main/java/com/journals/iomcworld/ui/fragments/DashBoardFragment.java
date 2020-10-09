@@ -28,7 +28,7 @@ import java.util.Objects;
 public class DashBoardFragment extends Fragment implements DashBoardListAdapter.DashBoardListener {
     private static final String TAG = "DashBoardFragment";
     FragmentDashBoardBinding fragmentDashBoardBinding;
-    String journal, page_url, journalcode, rel_keyword, journal_logo, track_paper;
+    String journal, page_url, journalcode, rel_keyword, journal_logo, track_paper,instructions;
     private List<DashBoardModel> dashBoardModelList = new ArrayList<>();
 
 
@@ -58,6 +58,7 @@ public class DashBoardFragment extends Fragment implements DashBoardListAdapter.
             rel_keyword = getArguments().getString("rel_keyword");
             journal_logo = getArguments().getString("journal_logo");
             track_paper = getArguments().getString("track_paper");
+            instructions = getArguments().getString("instructions");
         }
         Objects.requireNonNull(((AppCompatActivity) requireActivity()).getSupportActionBar()).setTitle(journal);
 
@@ -70,12 +71,12 @@ public class DashBoardFragment extends Fragment implements DashBoardListAdapter.
         dashBoardModelList.clear();
 
         dashBoardModelList.add(new DashBoardModel(getResources().getString(R.string.journal_home_tab)));
+        dashBoardModelList.add(new DashBoardModel(getResources().getString(R.string.editorial_board)));
         dashBoardModelList.add(new DashBoardModel(getResources().getString(R.string.in_press_tab)));
         dashBoardModelList.add(new DashBoardModel(getResources().getString(R.string.current_issue_tab)));
         dashBoardModelList.add(new DashBoardModel(getResources().getString(R.string.archive_tab)));
         dashBoardModelList.add(new DashBoardModel(getResources().getString(R.string.submit_manuscript)));
         dashBoardModelList.add(new DashBoardModel(getResources().getString(R.string.instruct_authors)));
-        dashBoardModelList.add(new DashBoardModel(getResources().getString(R.string.special_issues)));
         dashBoardModelList.add(new DashBoardModel(getResources().getString(R.string.contact_us)));
 
         DashBoardListAdapter dashBoardListAdapter = new DashBoardListAdapter(dashBoardModelList, getActivity(), (dashBoardModel, position) -> onItemClick(dashBoardModel, position));
@@ -93,6 +94,12 @@ public class DashBoardFragment extends Fragment implements DashBoardListAdapter.
             bundle.putString("page_url", page_url);
 
             Navigation.findNavController(fragmentDashBoardBinding.getRoot()).navigate(R.id.journalHomeFragment, bundle);
+
+        }else if (dashBoardModel.get(position).getDashBoardTitle().equalsIgnoreCase(getResources().getString(R.string.editorial_board))) {
+            Bundle bundle = new Bundle();
+            bundle.putString("ActionBarTitle", getResources().getString(R.string.editorial_board));
+            bundle.putString("journalcode", journalcode);
+            Navigation.findNavController(fragmentDashBoardBinding.getRoot()).navigate(R.id.editorialBoardFragment, bundle);
 
         } else if (dashBoardModel.get(position).getDashBoardTitle().equalsIgnoreCase(getResources().getString(R.string.in_press_tab))) {
             Bundle bundle = new Bundle();
@@ -123,10 +130,13 @@ public class DashBoardFragment extends Fragment implements DashBoardListAdapter.
         } else if (dashBoardModel.get(position).getDashBoardTitle().equalsIgnoreCase(getResources().getString(R.string.submit_manuscript))) {
             utils.viewInBrowser(requireContext(), track_paper, "No data");
         } else if (dashBoardModel.get(position).getDashBoardTitle().equalsIgnoreCase(getResources().getString(R.string.instruct_authors))) {
+            Bundle bundle = new Bundle();
+            bundle.putString("ActionBarTitle", getResources().getString(R.string.instruct_authors));
+            bundle.putString("instructions", instructions);
 
-        } else if (dashBoardModel.get(position).getDashBoardTitle().equalsIgnoreCase(getResources().getString(R.string.special_issues))) {
+            Navigation.findNavController(fragmentDashBoardBinding.getRoot()).navigate(R.id.instructionsAuthorsFragment, bundle);
 
-        } else {
+        }  else {
             Bundle bundle = new Bundle();
             bundle.putString("ActionBarTitle", getResources().getString(R.string.contact_us));
             bundle.putString("journalcode", journalcode);

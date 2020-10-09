@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Iomc World</string>
+    <string name="app_name">IOMC</string>
     <string name="todo">TODO</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -46,4 +46,5 @@
     <string name="_325_328_0176">+325 328 0176</string>
     <string name="website">www.iomcworld.org</string>
     <string name="international_online_medical_council_iomc_chaussee_de_la_hulpe_181_box_25_1170_watermael_boitsfort_brussels_belgium">International Online Medical Council (IOMC) \nChaussee de la Hulpe 181, Box 25, \n1170 Watermael-Boitsfort, Brussels, Belgium</string>
+    <string name="editorial_board">Editorial Board</string>
 </resources>

@@ -6,8 +6,10 @@ import com.journals.iomcworld.model.ArchiveResponse;
 import com.journals.iomcworld.model.CategoryResponse;
 import com.journals.iomcworld.model.ContactResponse;
 import com.journals.iomcworld.model.CurrentIssueResponse;
+import com.journals.iomcworld.model.EditorialBoardResponse;
 import com.journals.iomcworld.model.HomeResponse;
 import com.journals.iomcworld.model.InPressResponse;
+import com.journals.iomcworld.model.InstructionforAuthorsResponse;
 import com.journals.iomcworld.model.JournalHomeResponse;
 import com.journals.iomcworld.model.JournalsListResponse;
 import com.journals.iomcworld.model.VolumeIssueResponse;
@@ -59,6 +61,13 @@ public interface Api {
     @POST("contactapi.php")
     Call<ContactResponse> getContactDisplay(@Body JsonObject jsonObject);
 
+    @Headers("Content-Type: application/json")
+    @POST("instructionsforauthorsapi.php")
+    Call<InstructionforAuthorsResponse> getInstructionsList(@Body JsonObject jsonObject);
 
+
+    @Headers("Content-Type: application/json")
+    @POST("editorialboardapi.php")
+    Call<EditorialBoardResponse> getEditorialList(@Body JsonObject jsonObject);
 
 }

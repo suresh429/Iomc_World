@@ -4,7 +4,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('E:\\Android projects\\IomcWorld\\jks\\iomcworld.jks')
+            storeFile file('E:\\Android projects\\Omics Projects\\IomcWorld\\jks\\iomcworld.jks')
             storePassword 'Iomcworld@123'
             keyAlias 'iomcworld'
             keyPassword 'Iomcworld@123'
@@ -17,8 +17,8 @@ android {
         applicationId "com.journals.iomcworld"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 2
-        versionName "1.1"
+        versionCode 3
+        versionName "1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.release

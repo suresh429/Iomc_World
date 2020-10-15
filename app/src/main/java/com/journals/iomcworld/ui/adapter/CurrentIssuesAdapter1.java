@@ -98,6 +98,15 @@ public class CurrentIssuesAdapter1 extends RecyclerView.Adapter<CurrentIssuesAda
         return modelList.size();
     }
 
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         CurrentIssueItem1Binding rowItemBinding;
